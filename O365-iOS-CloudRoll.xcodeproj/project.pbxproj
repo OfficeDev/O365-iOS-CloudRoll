@@ -1,0 +1,645 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		96011B791BBC833A0002C748 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96011B781BBC833A0002C748 /* AVFoundation.framework */; };
+		9664A1B61BC4A5DF00CECB22 /* cloudRollLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 9664A1B51BC4A5DF00CECB22 /* cloudRollLogo.png */; settings = {ASSET_TAGS = (); }; };
+		9667DB821BBC5C6C006A2F83 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9667DB811BBC5C6C006A2F83 /* main.m */; };
+		9667DB851BBC5C6C006A2F83 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9667DB841BBC5C6C006A2F83 /* AppDelegate.m */; };
+		9667DB8B1BBC5C6C006A2F83 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9667DB891BBC5C6C006A2F83 /* Main.storyboard */; };
+		9667DB8D1BBC5C6C006A2F83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9667DB8C1BBC5C6C006A2F83 /* Assets.xcassets */; };
+		9667DB901BBC5C6C006A2F83 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9667DB8E1BBC5C6C006A2F83 /* LaunchScreen.storyboard */; };
+		9667DB9B1BBC5C6C006A2F83 /* O365_iOS_CloudRollTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9667DB9A1BBC5C6C006A2F83 /* O365_iOS_CloudRollTests.m */; };
+		9667DBA61BBC5C6C006A2F83 /* O365_iOS_CloudRollUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9667DBA51BBC5C6C006A2F83 /* O365_iOS_CloudRollUITests.m */; };
+		966E33A81BBC97B8002D1DCA /* SettingsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 966E33A71BBC97B8002D1DCA /* SettingsManager.m */; settings = {ASSET_TAGS = (); }; };
+		966E33AB1BBC97E6002D1DCA /* AuthenticationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 966E33AA1BBC97E6002D1DCA /* AuthenticationManager.m */; settings = {ASSET_TAGS = (); }; };
+		966E33AE1BBC97F0002D1DCA /* OneDriveManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 966E33AD1BBC97F0002D1DCA /* OneDriveManager.m */; settings = {ASSET_TAGS = (); }; };
+		966E33B11BBC9807002D1DCA /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 966E33B01BBC9807002D1DCA /* CameraViewController.m */; settings = {ASSET_TAGS = (); }; };
+		966E33B41BBC981A002D1DCA /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 966E33B31BBC981A002D1DCA /* SettingsTableViewController.m */; settings = {ASSET_TAGS = (); }; };
+		CA8D501BA8BEAF80463CE741 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 178752ED577FFA24F38B8B26 /* libPods.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9667DB971BBC5C6C006A2F83 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9667DB751BBC5C6C006A2F83 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9667DB7C1BBC5C6C006A2F83;
+			remoteInfo = "O365-iOS-CloudRoll";
+		};
+		9667DBA21BBC5C6C006A2F83 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9667DB751BBC5C6C006A2F83 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9667DB7C1BBC5C6C006A2F83;
+			remoteInfo = "O365-iOS-CloudRoll";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		178752ED577FFA24F38B8B26 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		688006A5C71FA0491675A365 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		96011B781BBC833A0002C748 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		9664A1B51BC4A5DF00CECB22 /* cloudRollLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cloudRollLogo.png; sourceTree = "<group>"; };
+		9667DB7D1BBC5C6C006A2F83 /* O365-iOS-CloudRoll.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "O365-iOS-CloudRoll.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9667DB811BBC5C6C006A2F83 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		9667DB831BBC5C6C006A2F83 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		9667DB841BBC5C6C006A2F83 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		9667DB8A1BBC5C6C006A2F83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9667DB8C1BBC5C6C006A2F83 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9667DB8F1BBC5C6C006A2F83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9667DB911BBC5C6C006A2F83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9667DB961BBC5C6C006A2F83 /* O365-iOS-CloudRollTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "O365-iOS-CloudRollTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9667DB9A1BBC5C6C006A2F83 /* O365_iOS_CloudRollTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = O365_iOS_CloudRollTests.m; sourceTree = "<group>"; };
+		9667DB9C1BBC5C6C006A2F83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9667DBA11BBC5C6C006A2F83 /* O365-iOS-CloudRollUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "O365-iOS-CloudRollUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9667DBA51BBC5C6C006A2F83 /* O365_iOS_CloudRollUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = O365_iOS_CloudRollUITests.m; sourceTree = "<group>"; };
+		9667DBA71BBC5C6C006A2F83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		966E33A61BBC97B8002D1DCA /* SettingsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsManager.h; sourceTree = "<group>"; };
+		966E33A71BBC97B8002D1DCA /* SettingsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsManager.m; sourceTree = "<group>"; };
+		966E33A91BBC97E6002D1DCA /* AuthenticationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthenticationManager.h; sourceTree = "<group>"; };
+		966E33AA1BBC97E6002D1DCA /* AuthenticationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthenticationManager.m; sourceTree = "<group>"; };
+		966E33AC1BBC97F0002D1DCA /* OneDriveManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OneDriveManager.h; sourceTree = "<group>"; };
+		966E33AD1BBC97F0002D1DCA /* OneDriveManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OneDriveManager.m; sourceTree = "<group>"; };
+		966E33AF1BBC9807002D1DCA /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
+		966E33B01BBC9807002D1DCA /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
+		966E33B21BBC981A002D1DCA /* SettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewController.h; sourceTree = "<group>"; };
+		966E33B31BBC981A002D1DCA /* SettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewController.m; sourceTree = "<group>"; };
+		96C685831BC72909007BAB5F /* AccountType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccountType.h; sourceTree = "<group>"; };
+		F5EF81D989A7AF63A3E122EF /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9667DB7A1BBC5C6C006A2F83 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96011B791BBC833A0002C748 /* AVFoundation.framework in Frameworks */,
+				CA8D501BA8BEAF80463CE741 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9667DB931BBC5C6C006A2F83 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9667DB9E1BBC5C6C006A2F83 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		10486E978B69D70895FB3B52 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				96011B781BBC833A0002C748 /* AVFoundation.framework */,
+				178752ED577FFA24F38B8B26 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		463564C6DDFBBAF5D68ECBC7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				688006A5C71FA0491675A365 /* Pods.debug.xcconfig */,
+				F5EF81D989A7AF63A3E122EF /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		9667DB741BBC5C6C006A2F83 = {
+			isa = PBXGroup;
+			children = (
+				9664A1B51BC4A5DF00CECB22 /* cloudRollLogo.png */,
+				9667DB7F1BBC5C6C006A2F83 /* O365-iOS-CloudRoll */,
+				9667DB991BBC5C6C006A2F83 /* O365-iOS-CloudRollTests */,
+				9667DBA41BBC5C6C006A2F83 /* O365-iOS-CloudRollUITests */,
+				9667DB7E1BBC5C6C006A2F83 /* Products */,
+				463564C6DDFBBAF5D68ECBC7 /* Pods */,
+				10486E978B69D70895FB3B52 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		9667DB7E1BBC5C6C006A2F83 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9667DB7D1BBC5C6C006A2F83 /* O365-iOS-CloudRoll.app */,
+				9667DB961BBC5C6C006A2F83 /* O365-iOS-CloudRollTests.xctest */,
+				9667DBA11BBC5C6C006A2F83 /* O365-iOS-CloudRollUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9667DB7F1BBC5C6C006A2F83 /* O365-iOS-CloudRoll */ = {
+			isa = PBXGroup;
+			children = (
+				966E33A51BBC9777002D1DCA /* Controllers */,
+				966E33A41BBC971C002D1DCA /* Models */,
+				9667DB831BBC5C6C006A2F83 /* AppDelegate.h */,
+				9667DB841BBC5C6C006A2F83 /* AppDelegate.m */,
+				9667DB891BBC5C6C006A2F83 /* Main.storyboard */,
+				9667DB8C1BBC5C6C006A2F83 /* Assets.xcassets */,
+				9667DB8E1BBC5C6C006A2F83 /* LaunchScreen.storyboard */,
+				9667DB911BBC5C6C006A2F83 /* Info.plist */,
+				9667DB801BBC5C6C006A2F83 /* Supporting Files */,
+			);
+			path = "O365-iOS-CloudRoll";
+			sourceTree = "<group>";
+		};
+		9667DB801BBC5C6C006A2F83 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9667DB811BBC5C6C006A2F83 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9667DB991BBC5C6C006A2F83 /* O365-iOS-CloudRollTests */ = {
+			isa = PBXGroup;
+			children = (
+				9667DB9A1BBC5C6C006A2F83 /* O365_iOS_CloudRollTests.m */,
+				9667DB9C1BBC5C6C006A2F83 /* Info.plist */,
+			);
+			path = "O365-iOS-CloudRollTests";
+			sourceTree = "<group>";
+		};
+		9667DBA41BBC5C6C006A2F83 /* O365-iOS-CloudRollUITests */ = {
+			isa = PBXGroup;
+			children = (
+				9667DBA51BBC5C6C006A2F83 /* O365_iOS_CloudRollUITests.m */,
+				9667DBA71BBC5C6C006A2F83 /* Info.plist */,
+			);
+			path = "O365-iOS-CloudRollUITests";
+			sourceTree = "<group>";
+		};
+		966E33A41BBC971C002D1DCA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				96C685831BC72909007BAB5F /* AccountType.h */,
+				966E33A61BBC97B8002D1DCA /* SettingsManager.h */,
+				966E33A71BBC97B8002D1DCA /* SettingsManager.m */,
+				966E33A91BBC97E6002D1DCA /* AuthenticationManager.h */,
+				966E33AA1BBC97E6002D1DCA /* AuthenticationManager.m */,
+				966E33AC1BBC97F0002D1DCA /* OneDriveManager.h */,
+				966E33AD1BBC97F0002D1DCA /* OneDriveManager.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		966E33A51BBC9777002D1DCA /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				966E33AF1BBC9807002D1DCA /* CameraViewController.h */,
+				966E33B01BBC9807002D1DCA /* CameraViewController.m */,
+				966E33B21BBC981A002D1DCA /* SettingsTableViewController.h */,
+				966E33B31BBC981A002D1DCA /* SettingsTableViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9667DB7C1BBC5C6C006A2F83 /* O365-iOS-CloudRoll */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9667DBAA1BBC5C6C006A2F83 /* Build configuration list for PBXNativeTarget "O365-iOS-CloudRoll" */;
+			buildPhases = (
+				F6F1D1BD88B1D062DC134306 /* Check Pods Manifest.lock */,
+				9667DB791BBC5C6C006A2F83 /* Sources */,
+				9667DB7A1BBC5C6C006A2F83 /* Frameworks */,
+				9667DB7B1BBC5C6C006A2F83 /* Resources */,
+				0F9F912A88F8C98FB455E862 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "O365-iOS-CloudRoll";
+			productName = "O365-iOS-CloudRoll";
+			productReference = 9667DB7D1BBC5C6C006A2F83 /* O365-iOS-CloudRoll.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9667DB951BBC5C6C006A2F83 /* O365-iOS-CloudRollTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9667DBAD1BBC5C6C006A2F83 /* Build configuration list for PBXNativeTarget "O365-iOS-CloudRollTests" */;
+			buildPhases = (
+				9667DB921BBC5C6C006A2F83 /* Sources */,
+				9667DB931BBC5C6C006A2F83 /* Frameworks */,
+				9667DB941BBC5C6C006A2F83 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9667DB981BBC5C6C006A2F83 /* PBXTargetDependency */,
+			);
+			name = "O365-iOS-CloudRollTests";
+			productName = "O365-iOS-CloudRollTests";
+			productReference = 9667DB961BBC5C6C006A2F83 /* O365-iOS-CloudRollTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		9667DBA01BBC5C6C006A2F83 /* O365-iOS-CloudRollUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9667DBB01BBC5C6C006A2F83 /* Build configuration list for PBXNativeTarget "O365-iOS-CloudRollUITests" */;
+			buildPhases = (
+				9667DB9D1BBC5C6C006A2F83 /* Sources */,
+				9667DB9E1BBC5C6C006A2F83 /* Frameworks */,
+				9667DB9F1BBC5C6C006A2F83 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9667DBA31BBC5C6C006A2F83 /* PBXTargetDependency */,
+			);
+			name = "O365-iOS-CloudRollUITests";
+			productName = "O365-iOS-CloudRollUITests";
+			productReference = 9667DBA11BBC5C6C006A2F83 /* O365-iOS-CloudRollUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9667DB751BBC5C6C006A2F83 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = Microsoft;
+				TargetAttributes = {
+					9667DB7C1BBC5C6C006A2F83 = {
+						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = UBF8T346G9;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 0;
+							};
+						};
+					};
+					9667DB951BBC5C6C006A2F83 = {
+						CreatedOnToolsVersion = 7.0;
+						TestTargetID = 9667DB7C1BBC5C6C006A2F83;
+					};
+					9667DBA01BBC5C6C006A2F83 = {
+						CreatedOnToolsVersion = 7.0;
+						TestTargetID = 9667DB7C1BBC5C6C006A2F83;
+					};
+				};
+			};
+			buildConfigurationList = 9667DB781BBC5C6C006A2F83 /* Build configuration list for PBXProject "O365-iOS-CloudRoll" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9667DB741BBC5C6C006A2F83;
+			productRefGroup = 9667DB7E1BBC5C6C006A2F83 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9667DB7C1BBC5C6C006A2F83 /* O365-iOS-CloudRoll */,
+				9667DB951BBC5C6C006A2F83 /* O365-iOS-CloudRollTests */,
+				9667DBA01BBC5C6C006A2F83 /* O365-iOS-CloudRollUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9667DB7B1BBC5C6C006A2F83 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9667DB901BBC5C6C006A2F83 /* LaunchScreen.storyboard in Resources */,
+				9667DB8D1BBC5C6C006A2F83 /* Assets.xcassets in Resources */,
+				9667DB8B1BBC5C6C006A2F83 /* Main.storyboard in Resources */,
+				9664A1B61BC4A5DF00CECB22 /* cloudRollLogo.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9667DB941BBC5C6C006A2F83 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9667DB9F1BBC5C6C006A2F83 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0F9F912A88F8C98FB455E862 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F6F1D1BD88B1D062DC134306 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9667DB791BBC5C6C006A2F83 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				966E33B41BBC981A002D1DCA /* SettingsTableViewController.m in Sources */,
+				966E33AB1BBC97E6002D1DCA /* AuthenticationManager.m in Sources */,
+				9667DB851BBC5C6C006A2F83 /* AppDelegate.m in Sources */,
+				966E33AE1BBC97F0002D1DCA /* OneDriveManager.m in Sources */,
+				966E33A81BBC97B8002D1DCA /* SettingsManager.m in Sources */,
+				966E33B11BBC9807002D1DCA /* CameraViewController.m in Sources */,
+				9667DB821BBC5C6C006A2F83 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9667DB921BBC5C6C006A2F83 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9667DB9B1BBC5C6C006A2F83 /* O365_iOS_CloudRollTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9667DB9D1BBC5C6C006A2F83 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9667DBA61BBC5C6C006A2F83 /* O365_iOS_CloudRollUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9667DB981BBC5C6C006A2F83 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9667DB7C1BBC5C6C006A2F83 /* O365-iOS-CloudRoll */;
+			targetProxy = 9667DB971BBC5C6C006A2F83 /* PBXContainerItemProxy */;
+		};
+		9667DBA31BBC5C6C006A2F83 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9667DB7C1BBC5C6C006A2F83 /* O365-iOS-CloudRoll */;
+			targetProxy = 9667DBA21BBC5C6C006A2F83 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		9667DB891BBC5C6C006A2F83 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9667DB8A1BBC5C6C006A2F83 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		9667DB8E1BBC5C6C006A2F83 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9667DB8F1BBC5C6C006A2F83 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9667DBA81BBC5C6C006A2F83 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		9667DBA91BBC5C6C006A2F83 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9667DBAB1BBC5C6C006A2F83 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 688006A5C71FA0491675A365 /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = "O365-iOS-CloudRoll/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.microsoft.O365-iOS-CloudRoll";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Debug;
+		};
+		9667DBAC1BBC5C6C006A2F83 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F5EF81D989A7AF63A3E122EF /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = "O365-iOS-CloudRoll/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.microsoft.O365-iOS-CloudRoll";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Release;
+		};
+		9667DBAE1BBC5C6C006A2F83 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "O365-iOS-CloudRollTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.microsoft.O365-iOS-CloudRollTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/O365-iOS-CloudRoll.app/O365-iOS-CloudRoll";
+			};
+			name = Debug;
+		};
+		9667DBAF1BBC5C6C006A2F83 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "O365-iOS-CloudRollTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.microsoft.O365-iOS-CloudRollTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/O365-iOS-CloudRoll.app/O365-iOS-CloudRoll";
+			};
+			name = Release;
+		};
+		9667DBB11BBC5C6C006A2F83 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "O365-iOS-CloudRollUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.microsoft.O365-iOS-CloudRollUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "O365-iOS-CloudRoll";
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		9667DBB21BBC5C6C006A2F83 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "O365-iOS-CloudRollUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.microsoft.O365-iOS-CloudRollUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "O365-iOS-CloudRoll";
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9667DB781BBC5C6C006A2F83 /* Build configuration list for PBXProject "O365-iOS-CloudRoll" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9667DBA81BBC5C6C006A2F83 /* Debug */,
+				9667DBA91BBC5C6C006A2F83 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9667DBAA1BBC5C6C006A2F83 /* Build configuration list for PBXNativeTarget "O365-iOS-CloudRoll" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9667DBAB1BBC5C6C006A2F83 /* Debug */,
+				9667DBAC1BBC5C6C006A2F83 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9667DBAD1BBC5C6C006A2F83 /* Build configuration list for PBXNativeTarget "O365-iOS-CloudRollTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9667DBAE1BBC5C6C006A2F83 /* Debug */,
+				9667DBAF1BBC5C6C006A2F83 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9667DBB01BBC5C6C006A2F83 /* Build configuration list for PBXNativeTarget "O365-iOS-CloudRollUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9667DBB11BBC5C6C006A2F83 /* Debug */,
+				9667DBB21BBC5C6C006A2F83 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9667DB751BBC5C6C006A2F83 /* Project object */;
+}
