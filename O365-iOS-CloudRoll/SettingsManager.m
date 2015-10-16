@@ -6,8 +6,9 @@
 
 @implementation SettingsManager
 
-static NSString * const kResolution = @"resolution";
-
+static NSString * const kResolution                 = @"resolution";
+static NSString * const kMicrosoftAccountId         = @"microsoftAccountId";
+static NSString * const kActiveDirectoryAccountId   = @"activeDirectoryAccountId";
 
 + (ResolutionQuality)imageResolution {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
@@ -20,6 +21,35 @@ static NSString * const kResolution = @"resolution";
                       forKey:kResolution];
     [userDefaults synchronize];
 }
+
+
++ (NSString *)microsoftAccountId {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    return [userDefaults objectForKey:kMicrosoftAccountId];
+
+}
+
++ (void)setMicrosoftAccountId:(NSString *)accountId {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setObject:accountId
+                      forKey:kMicrosoftAccountId];
+    [userDefaults synchronize];
+}
+
++ (NSString*)activeDirectoryAccountId {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    return [userDefaults objectForKey:kActiveDirectoryAccountId];
+}
+
++ (void)setActiveDirectoryAccountId:(NSString *)accountId {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setObject:accountId
+                     forKey:kActiveDirectoryAccountId];
+    [userDefaults synchronize];
+}
+
+
+
 
 @end
 

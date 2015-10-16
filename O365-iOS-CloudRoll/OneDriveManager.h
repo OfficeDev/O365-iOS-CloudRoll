@@ -4,17 +4,19 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "AccountType.h"
-
-@class AuthenticationManager;
-@class ODClient;
-@class ODItem;
+#import <ODItem.h>
 
 @interface OneDriveManager : NSObject
 
-+ (void)uploadToClient:(ODClient*)client
-             imageData:(NSData*)imageData
-            completion:(void (^)(ODItem *response, NSError *error))completion;
+- (void)uploadToConsumerAccount:(NSString *)accountId
+                      imageData:(NSData *)imageData
+                     completion:(void (^)(ODItem *response, NSError *error))completion;
+
+- (void)uploadToBusinessAccount:(NSString *)accountId
+                      imageData:(NSData *)imageData
+                     completion:(void (^)(ODItem *response, NSError *error))completion;
+
+- (void)signOut;
 
 @end
 

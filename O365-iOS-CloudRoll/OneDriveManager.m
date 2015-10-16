@@ -3,20 +3,137 @@
  */
 
 #import "OneDriveManager.h"
-#import "AuthenticationManager.h"
 #import <OneDriveSDK/OneDriveSDK.h>
+#import "SettingsManager.h"
+
+// You will set your application's clientId and redirect URI for Microsoft Account authentication (OneDrive)
+NSString * const kMicrosoftAccountAppId         = @"ENTER_CLIENT_ID_HERE";
+NSString * const kMicrosoftAccountScopesString  = @"wl.signin,onedrive.readwrite,onedrive.appfolder,wl.offline_access";
+
+// You will set your application's clientId and redirect URI for Active Directory authentication (OneDrive for
+//Business)
+NSString * const kActiveDirectoryAppId          = @"ENTER_CLIENT_ID_HERE";
+NSString * const kActiveDirectoryRedirectURL    = @"ENTER_REDIRECT_URI_HERE";
+NSString * const kActiveDirectoryScopesString   = @"MyFiles.readwrite";
+NSString * const kMicrosoftAccountFlag          = @"Microsoft Account";
+NSString * const kActiveDirectoryAccountFlag    = @"Active Directory Account";
+
 
 @implementation OneDriveManager
 
-// OneDrive account to use a special folder called the App Folder.
-// The App Folder is typically named after your app, and is found in the Apps folder in the user's OneDrive
-// For more detail, read https://dev.onedrive.com/misc/appfolder.htm
-// Note: App Folder is currently not supported in OneDrive for Business
-//
-// OneDrive for Business will use a specific folder named "iOS-CloudRoll" for this sample.
-// This also works in OneDrive account (non business) if desired.
-+ (void)uploadToClient:(ODClient*)client
-             imageData:(NSData*)imageData
+#pragma mark - Initialization
+- (instancetype)init {
+    self = [super init];
+    if(self){
+        [self initOneDrive];
+    }
+    return self;
+}
+
+- (void)initOneDrive {
+    NSArray *microsoftAccountScopes = [kMicrosoftAccountScopesString componentsSeparatedByString:@","];
+    NSArray *activeDirectoryScopes = [kActiveDirectoryScopesString componentsSeparatedByString:@","];
+    
+    [ODClient setMicrosoftAccountAppId:kMicrosoftAccountAppId
+                microsoftAccountScopes:microsoftAccountScopes
+                 microsoftAccountFlags:@{kMicrosoftAccountFlag:@(1)}
+                  activeDirectoryAppId:kActiveDirectoryAppId
+                 activeDirectoryScopes:activeDirectoryScopes
+            activeDirectoryRedirectURL:kActiveDirectoryRedirectURL
+                  activeDirectoryFlags:@{kActiveDirectoryAccountFlag:@(1)}];
+}
+
+
+#pragma mark - get OneDrive client (ODClient)
+
+- (void)clientWithAccount:(NSString *)accountId
+               completion:(void (^)(ODClient *client, NSError *error))completion {
+    
+    ODClient *client = [ODClient loadClientWithAccountId:accountId];
+    if (client) {
+        completion(client, nil);
+    }
+    else {
+        [ODClient authenticatedClientWithCompletion:^(ODClient *client, NSError *error) {
+            completion(client, error);
+        }];
+    }
+}
+
+#pragma mark - public uploading task methods
+
+
+- (void)uploadToConsumerAccount:(NSString *)accountId
+                      imageData:(NSData *)imageData
+                     completion:(void (^)(ODItem *response, NSError *error))completion {
+    [self uploadToAccount:accountId
+        isBusinessAccount:NO
+                imageData:imageData
+               completion:^(ODItem *response, NSError *error) {
+                   completion (response, error);
+               }];
+}
+
+- (void)uploadToBusinessAccount:(NSString *)accountId
+                      imageData:(NSData *)imageData
+                     completion:(void (^)(ODItem *response, NSError *error))completion {
+    [self uploadToAccount:accountId
+        isBusinessAccount:YES
+                imageData:imageData
+               completion:^(ODItem *response, NSError *error) {
+                   completion (response, error);
+               }];
+}
+
+
+
+- (void)uploadToAccount:(NSString *)accountId
+      isBusinessAccount:(BOOL)business
+              imageData:(NSData *)imageData
+                     completion:(void (^)(ODItem *response, NSError *error))completion
+{
+    [self clientWithAccount:accountId
+                 completion:^(ODClient *client, NSError *error) {
+                     if (error) {
+                         completion(nil, error);
+                         return;
+                     }
+                     
+                     // Check if the account is linked with a business (Active directory account), check against a
+                     // kActiveDirectoryAccountFlag flag set in the ODClient initializer.
+                     if ((![client.serviceFlags objectForKey:kActiveDirectoryAccountFlag] && business) ||
+                         (![client.serviceFlags objectForKey:kMicrosoftAccountFlag] && !business)) {
+                         
+                         NSString *errorString = [NSString stringWithFormat:@"Please authenticated with a %@", business?@"Active directory account":@"Microsoft account"];
+                         NSError *newError = [NSError errorWithDomain:@"http://microsoft"
+                                                                 code:0
+                                                             userInfo:@{errorString:NSLocalizedDescriptionKey}];
+                         [client signOutWithCompletion:^(NSError *error) {
+                             completion(nil, newError);
+                         }];
+                         return;
+                     }
+                     
+                     [SettingsManager setMicrosoftAccountId:client.accountId];
+
+                     BOOL useAppfolder = !business;
+                     
+                     [self uploadToClient:client
+                                imageData:imageData
+                             useAppFolder:useAppfolder
+                               completion:^(ODItem *response, NSError *error) {
+                                   completion(response, error);
+                               }];
+
+                 }];
+}
+
+
+#pragma mark - uploading task
+
+- (void)uploadToClient:(ODClient *)client
+             imageData:(NSData *)imageData
+          useAppFolder:(BOOL)appFolder
             completion:(void (^)(ODItem *response, NSError *error))completion {
     
     ODItemRequestBuilder *itemRequestBuilder;
@@ -24,15 +141,15 @@
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd hh-mm ss a'.jpg'"];
-
-    // Using special app folder
-    if ([client.serviceFlags objectForKey:MicrosoftAccount]) {
+    
+    // Using a special App folder
+    if (appFolder) {
         itemRequestBuilder = [[client drive] special:@"approot"];
         filePath = [dateFormatter stringFromDate:[NSDate date]];
     }
     
-    // Using specific path
-    else{
+    // Using a specific path
+    else {
         itemRequestBuilder = [client root];
         filePath = [NSString stringWithFormat:@"iOS-CloudRoll/%@", [dateFormatter stringFromDate:[NSDate date]]];
     }
@@ -40,7 +157,21 @@
     [[[itemRequestBuilder itemByPath:filePath] contentRequest] uploadFromData:imageData completion:^(ODItem *response, NSError *error) {
         completion(response, error);
     }];
+}
+
+
+
+#pragma mark - sign out
+- (void)signOut {
+    // iterate through all accounts and sign out
+    NSArray *clients = [ODClient loadClients];
+ 
+    for (ODClient *client in clients) {
+        [client signOutWithCompletion:nil];
+    }
     
+    [SettingsManager setActiveDirectoryAccountId:nil];
+    [SettingsManager setMicrosoftAccountId:nil];
 }
 
 @end

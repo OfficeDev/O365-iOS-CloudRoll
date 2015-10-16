@@ -3,12 +3,11 @@
  */
 
 #import <UIKit/UIKit.h>
-
-@class AuthenticationManager;
+@class OneDriveManager;
 
 @interface SettingsTableViewController : UITableViewController
 
-@property (weak, nonatomic) AuthenticationManager *authManager;
+@property (weak, nonatomic) OneDriveManager *oneDriveManager;
 
 @end
 

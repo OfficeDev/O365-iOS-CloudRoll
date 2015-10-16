@@ -17,7 +17,6 @@
 		9667DB9B1BBC5C6C006A2F83 /* O365_iOS_CloudRollTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9667DB9A1BBC5C6C006A2F83 /* O365_iOS_CloudRollTests.m */; };
 		9667DBA61BBC5C6C006A2F83 /* O365_iOS_CloudRollUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9667DBA51BBC5C6C006A2F83 /* O365_iOS_CloudRollUITests.m */; };
 		966E33A81BBC97B8002D1DCA /* SettingsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 966E33A71BBC97B8002D1DCA /* SettingsManager.m */; settings = {ASSET_TAGS = (); }; };
-		966E33AB1BBC97E6002D1DCA /* AuthenticationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 966E33AA1BBC97E6002D1DCA /* AuthenticationManager.m */; settings = {ASSET_TAGS = (); }; };
 		966E33AE1BBC97F0002D1DCA /* OneDriveManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 966E33AD1BBC97F0002D1DCA /* OneDriveManager.m */; settings = {ASSET_TAGS = (); }; };
 		966E33B11BBC9807002D1DCA /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 966E33B01BBC9807002D1DCA /* CameraViewController.m */; settings = {ASSET_TAGS = (); }; };
 		966E33B41BBC981A002D1DCA /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 966E33B31BBC981A002D1DCA /* SettingsTableViewController.m */; settings = {ASSET_TAGS = (); }; };
@@ -62,15 +61,12 @@
 		9667DBA71BBC5C6C006A2F83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		966E33A61BBC97B8002D1DCA /* SettingsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsManager.h; sourceTree = "<group>"; };
 		966E33A71BBC97B8002D1DCA /* SettingsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsManager.m; sourceTree = "<group>"; };
-		966E33A91BBC97E6002D1DCA /* AuthenticationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthenticationManager.h; sourceTree = "<group>"; };
-		966E33AA1BBC97E6002D1DCA /* AuthenticationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthenticationManager.m; sourceTree = "<group>"; };
 		966E33AC1BBC97F0002D1DCA /* OneDriveManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OneDriveManager.h; sourceTree = "<group>"; };
 		966E33AD1BBC97F0002D1DCA /* OneDriveManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OneDriveManager.m; sourceTree = "<group>"; };
 		966E33AF1BBC9807002D1DCA /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
 		966E33B01BBC9807002D1DCA /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
 		966E33B21BBC981A002D1DCA /* SettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewController.h; sourceTree = "<group>"; };
 		966E33B31BBC981A002D1DCA /* SettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewController.m; sourceTree = "<group>"; };
-		96C685831BC72909007BAB5F /* AccountType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccountType.h; sourceTree = "<group>"; };
 		F5EF81D989A7AF63A3E122EF /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -187,11 +183,8 @@
 		966E33A41BBC971C002D1DCA /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				96C685831BC72909007BAB5F /* AccountType.h */,
 				966E33A61BBC97B8002D1DCA /* SettingsManager.h */,
 				966E33A71BBC97B8002D1DCA /* SettingsManager.m */,
-				966E33A91BBC97E6002D1DCA /* AuthenticationManager.h */,
-				966E33AA1BBC97E6002D1DCA /* AuthenticationManager.m */,
 				966E33AC1BBC97F0002D1DCA /* OneDriveManager.h */,
 				966E33AD1BBC97F0002D1DCA /* OneDriveManager.m */,
 			);
@@ -221,7 +214,7 @@
 				9667DB7A1BBC5C6C006A2F83 /* Frameworks */,
 				9667DB7B1BBC5C6C006A2F83 /* Resources */,
 				0F9F912A88F8C98FB455E862 /* Copy Pods Resources */,
-				1D0E88F77DA064520C26C616 /* Embed Pods Frameworks */,
+				4723BF3C99519E1E22E3378E /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -360,7 +353,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		1D0E88F77DA064520C26C616 /* Embed Pods Frameworks */ = {
+		4723BF3C99519E1E22E3378E /* Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -398,7 +391,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				966E33B41BBC981A002D1DCA /* SettingsTableViewController.m in Sources */,
-				966E33AB1BBC97E6002D1DCA /* AuthenticationManager.m in Sources */,
 				9667DB851BBC5C6C006A2F83 /* AppDelegate.m in Sources */,
 				966E33AE1BBC97F0002D1DCA /* OneDriveManager.m in Sources */,
 				966E33A81BBC97B8002D1DCA /* SettingsManager.m in Sources */,
@@ -494,7 +486,6 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "$(SRCROOT)/**";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -532,7 +523,6 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "$(SRCROOT)/**";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;

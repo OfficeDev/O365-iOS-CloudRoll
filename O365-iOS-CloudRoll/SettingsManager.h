@@ -15,6 +15,12 @@ typedef NS_ENUM(int, ResolutionQuality) {
 + (ResolutionQuality)imageResolution;
 + (void)setImageResolution:(ResolutionQuality)quality;
 
++ (NSString *)microsoftAccountId;
++ (NSString *)activeDirectoryAccountId;
+
++ (void)setMicrosoftAccountId:(NSString *)accountId;
++ (void)setActiveDirectoryAccountId:(NSString *)accountId;
+
 @end
 
 

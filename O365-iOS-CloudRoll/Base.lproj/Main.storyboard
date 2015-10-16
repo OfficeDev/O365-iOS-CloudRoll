@@ -60,9 +60,6 @@
                                                 <real key="value" value="22.5"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="takePhoto:" destination="BYZ-38-t0r" eventType="touchUpInside" id="flW-Gi-RNt"/>
-                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UZY-5w-TjI">
                                         <rect key="frame" x="313" y="0.0" width="144" height="29"/>
@@ -79,7 +76,7 @@
                                             <color key="titleColor" red="1" green="0.97258818019014326" blue="0.29229735933789924" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="oneDriveBusinessSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FeW-AC-ZSc"/>
+                                            <action selector="oneDriveBusinessSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vIF-BW-C3B"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dd5-cP-Ov3">
@@ -93,7 +90,7 @@
                                             <color key="titleColor" red="1" green="0.97258818019014326" blue="0.29229735933789924" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="oneDriveSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Noe-Ll-GKG"/>
+                                            <action selector="oneDriveSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ttw-cD-uEA"/>
                                         </connections>
                                     </button>
                                 </subviews>

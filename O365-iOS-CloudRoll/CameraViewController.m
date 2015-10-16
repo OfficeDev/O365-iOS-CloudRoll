@@ -5,10 +5,8 @@
 #import "CameraViewController.h"
 #import "OneDriveManager.h"
 #import "SettingsTableViewController.h"
-#import "AuthenticationManager.h"
 #import <AVFoundation/AVFoundation.h>
 #import "SettingsManager.h"
-#import <OneDriveSDK/OneDriveSDK.h>
 #import <TargetConditionals.h>
 
 // Comment or uncomment to specify running on a simulator as camera does not work on a simulator
@@ -39,8 +37,7 @@ const CGFloat kHideDelay = 3.f;
 
 @property (assign, nonatomic) BOOL photoButtonEnabled;
 
-@property (assign, nonatomic) AccountType accountType;
-@property (strong, nonatomic) AuthenticationManager *authManager;
+@property (strong, nonatomic) OneDriveManager *oneDriveManager;
 
 @end
 
@@ -51,18 +48,16 @@ const CGFloat kHideDelay = 3.f;
     
     [super viewDidLoad];
     
-    // Initialize authentication manager
-    _authManager = [[AuthenticationManager alloc] init];
-    
-    // Initialize others
+    // Initialize local variables and properties
+    self.oneDriveManager = [[OneDriveManager alloc] init];
+
     self.photoButtonEnabled = YES;
     self.statusLabel.text = @"";
     
     [self setupGesture];
-    [self selectAccountType:AccountTypeMicrosoft];
+    [self selectLeft];
     
     [self.takePhotoButton setBackgroundImage:[self imageWithColor:[UIColor redColor]] forState:UIControlStateHighlighted];
-    
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
@@ -105,38 +100,38 @@ const CGFloat kHideDelay = 3.f;
 }
 
 - (void)leftSwipe:(UIGestureRecognizer*)recognizer {
-    [self selectAccountType:AccountTypeActiveDirectory];
+    [self selectRight];
 }
 
 - (void)rightSwipe:(UIGestureRecognizer*)recognizer {
-    [self selectAccountType:AccountTypeMicrosoft];
+    [self selectLeft];
 }
 
 
 #pragma mark - account type selector
-
 - (IBAction)oneDriveSelected:(id)sender {
-    [self selectAccountType:AccountTypeMicrosoft];
+    [self selectLeft];
 }
-
 
 - (IBAction)oneDriveBusinessSelected:(id)sender {
-    [self selectAccountType:AccountTypeActiveDirectory];
+    [self selectRight];
+}
+
+- (void) selectLeft {
+    [self.oneDriveButton setSelected:YES];
+    [self.oneDriveBusinessButton setSelected:NO];
+
+    [self.takePhotoButton removeTarget:nil action:nil forControlEvents:UIControlEventTouchUpInside];
+    [self.takePhotoButton addTarget:self action:@selector(takePhotoAndUploadToOneDrive) forControlEvents:UIControlEventTouchUpInside];
 }
 
 
-- (void)selectAccountType:(AccountType)accountType {
-    // update property and UI accordingly
-    if (accountType == AccountTypeActiveDirectory) {
-        [self.oneDriveButton setSelected:NO];
-        [self.oneDriveBusinessButton setSelected:YES];
-        self.accountType = AccountTypeActiveDirectory;
-    }
-    else if (accountType == AccountTypeMicrosoft) {
-        [self.oneDriveButton setSelected:YES];
-        [self.oneDriveBusinessButton setSelected:NO];
-        self.accountType = AccountTypeMicrosoft;
-    }
+- (void) selectRight {
+    [self.oneDriveButton setSelected:NO];
+    [self.oneDriveBusinessButton setSelected:YES];
+
+    [self.takePhotoButton removeTarget:nil action:nil forControlEvents:UIControlEventTouchUpInside];
+    [self.takePhotoButton addTarget:self action:@selector(takePhotoAndUploadToOneDriveBusiness) forControlEvents:UIControlEventTouchUpInside];
 }
 
 #pragma mark - camera
@@ -193,17 +188,77 @@ const CGFloat kHideDelay = 3.f;
 
 
 #pragma mark - take photo
-- (IBAction)takePhoto:(id)sender {
-    
+
+- (void)takePhotoAndUploadToOneDriveBusiness {
+    [self takePhotoAndUploadIsBusiness:YES];
+}
+
+- (void)takePhotoAndUploadToOneDrive {
+    [self takePhotoAndUploadIsBusiness:NO];
+}
+
+- (void)takePhotoAndUploadIsBusiness:(BOOL)business {
     if (!self.photoButtonEnabled) {
         return;
     }
     
     self.photoButtonEnabled = NO;
+    
+    [self setStatus:@"Trying to upload a photo image" showLoading:YES];
+    
+    [self takePhotoWithCompletion:^(NSData *imageData, NSError *error) {
+        if (error) {
+            NSLog(@"Error\n%@", [error localizedDescription]);
+            [self setStatus:@"Error occurred" showLoading:NO hideAfter:kHideDelay];
+            [self handleError:error];
+            self.photoButtonEnabled = YES;
+            return;
+        }
 
-    // Camera doesnot work on a simulator, thus use the asset image for an uploading task
+        // get image data and create JPEG representation
+        CGFloat imageQuality;
+        switch ([SettingsManager imageResolution]) {
+            case ResolutionLow:
+                imageQuality = 0.3;
+                break;
+                
+            case ResolutionMedium:
+                imageQuality = 0.5;
+                break;
+                
+            case ResolutionHigh:
+                imageQuality = 1.0;
+                break;
+                
+            default:
+                break;
+        }
+        
+        NSData *imageDataWithQuality = UIImageJPEGRepresentation([UIImage imageWithData:imageData], imageQuality);
+        NSDate *startTime = [NSDate date];
+        
+        [self uploadImageData:imageDataWithQuality
+                   toBusiness:business
+                   completion:^(ODItem *response, NSError *error) {
+                        self.photoButtonEnabled = YES;
+                        if (error) {
+                            NSLog(@"Error\n%@", [error localizedDescription]);
+                            [self setStatus:@"Error occurred" showLoading:NO hideAfter:kHideDelay];
+                            [self handleError:error];
+                            return;
+                        }
+                        
+                        [self setStatus:[NSString stringWithFormat:@"Success ✓ - %.02f seconds\n%@",
+                                         [[NSDate date] timeIntervalSinceDate:startTime], response.name]
+                            showLoading:NO
+                              hideAfter:kHideDelay];
+                    }];
+    }];
+}
+
+- (void)takePhotoWithCompletion:(void (^)(NSData *imageData, NSError *error))completion {
     if (TARGET_IPHONE_SIMULATOR) {
-        [self uploadPhotoData:UIImagePNGRepresentation([UIImage imageNamed:@"cloudRollLogo.png"])];
+        completion(UIImagePNGRepresentation([UIImage imageNamed:@"cloudRollLogo.png"]), nil);
     }
     else {
         // Capture image & upload
@@ -225,75 +280,31 @@ const CGFloat kHideDelay = 3.f;
                                                       completionHandler:^(CMSampleBufferRef imageDataSampleBuffer, NSError *error) {
                                                           if (imageDataSampleBuffer) {
                                                               NSData *imageData = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageDataSampleBuffer];
-                                                              [self uploadPhotoData:imageData];
+                                                              completion(imageData, nil);
                                                           }
                                                           else{
-                                                              self.photoButtonEnabled = YES;;
-                                                              [self handleError:error];
+                                                              completion(nil, error);
                                                           }
                                                       }];
     }
 }
 
-
-#pragma mark - upload
-
-- (void)uploadPhotoData:(NSData*)photoData {
-
-    [self setStatus:@"Connecting..." showLoading:YES];
-    
-    // get image data and create JPEG representation
-    CGFloat imageQuality;
-    switch ([SettingsManager imageResolution]) {
-        case ResolutionLow:
-            imageQuality = 0.3;
-            break;
-            
-        case ResolutionMedium:
-            imageQuality = 0.5;
-            break;
-        
-        case ResolutionHigh:
-            imageQuality = 1.0;
-            break;
-            
-        default:
-            break;
+- (void)uploadImageData:(NSData *)imageData
+             toBusiness:(BOOL)business
+              completion:(void (^)(ODItem *response, NSError *error))completion
+{
+    if (business) {
+        [self.oneDriveManager uploadToBusinessAccount:[SettingsManager activeDirectoryAccountId]
+                                            imageData:imageData completion:^(ODItem *response, NSError *error) {
+                                                completion(response, error);
+                                            }];
     }
-    NSData *imageData = UIImageJPEGRepresentation([UIImage imageWithData:photoData], imageQuality);
-
-    // get OneDrive client and upload
-    [self.authManager clientWithType:self.accountType completion:^(ODClient *client, NSError *error) {
-        if(error) {
-            self.photoButtonEnabled = YES;
-            [self setStatus:@"Error occurred" showLoading:NO hideAfter:kHideDelay];
-            [self handleError:error];
-            return;
-        }
-        
-        NSString *account = (self.accountType == AccountTypeActiveDirectory)?@"OneDrive for Business":@"OneDrive";
-        [self setStatus:[NSString stringWithFormat:@"Sending your picture to %@", account] showLoading:YES];
-        
-        NSDate *startTime = [NSDate date];
-        
-        [OneDriveManager uploadToClient:client
-                              imageData:imageData
-                             completion:^(ODItem *responseItem, NSError *error) {
-                                 self.photoButtonEnabled = YES;
-                                 
-                                 if (error) {
-                                     NSLog(@"Error\n%@", [error localizedDescription]);
-                                     [self setStatus:@"Error occurred" showLoading:NO hideAfter:kHideDelay];
-                                     [self handleError:error];
-                                 }
-                                 else {
-                                     [self setStatus:[NSString stringWithFormat:@"Success ✓ - %.02f seconds\n%@",
-                                                      [[NSDate date] timeIntervalSinceDate:startTime], responseItem.name]
-                                         showLoading:NO
-                                           hideAfter:kHideDelay];
-                                 }
-                             }];
-    }];
+    else {
+        [self.oneDriveManager uploadToConsumerAccount:[SettingsManager microsoftAccountId]
+                                            imageData:imageData completion:^(ODItem *response, NSError *error) {
+                                                completion(response, error);
+                                            }];
+    }
 }
 
 #pragma mark - ui helpers
@@ -344,7 +355,7 @@ const CGFloat kHideDelay = 3.f;
 
 #pragma mark - UI helper
 
-- (UIImage*)imageWithColor:(UIColor*)color {
+- (UIImage*)imageWithColor:(UIColor *)color {
     CGRect rect = CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);
     UIGraphicsBeginImageContext(rect.size);
     CGContextRef context = UIGraphicsGetCurrentContext();
@@ -368,7 +379,7 @@ const CGFloat kHideDelay = 3.f;
     // Pass the selected object to the new view controller.
     if ([segue.identifier isEqualToString:@"showSettings"]) {
         SettingsTableViewController *vc = segue.destinationViewController;
-        vc.authManager = self.authManager;
+        vc.oneDriveManager = self.oneDriveManager;
     }
 }
 

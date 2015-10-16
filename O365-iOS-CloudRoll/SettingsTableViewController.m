@@ -3,8 +3,8 @@
  */
 
 #import "SettingsTableViewController.h"
-#import "AuthenticationManager.h"
 #import "SettingsManager.h"
+#import "OneDriveManager.h"
 
 @interface SettingsTableViewController ()
 @property (weak, nonatomic) IBOutlet UITableViewCell *signOutCell;
@@ -42,7 +42,7 @@
     
     [alertController addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
     [alertController addAction:[UIAlertAction actionWithTitle:@"Sign out" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-        [self.authManager signOutOfAllAccounts];
+        [self.oneDriveManager signOut];
         [self.navigationController popViewControllerAnimated:YES];
     }]];
     
