@@ -62,7 +62,6 @@ NSString * const kActiveDirectoryAccountFlag    = @"Active Directory Account";
 
 #pragma mark - public uploading task methods
 
-
 - (void)uploadToConsumerAccount:(NSString *)accountId
                       imageData:(NSData *)imageData
                      completion:(void (^)(ODItem *response, NSError *error))completion {
@@ -90,7 +89,7 @@ NSString * const kActiveDirectoryAccountFlag    = @"Active Directory Account";
 - (void)uploadToAccount:(NSString *)accountId
       isBusinessAccount:(BOOL)business
               imageData:(NSData *)imageData
-                     completion:(void (^)(ODItem *response, NSError *error))completion
+             completion:(void (^)(ODItem *response, NSError *error))completion
 {
     [self clientWithAccount:accountId
                  completion:^(ODClient *client, NSError *error) {
@@ -114,8 +113,14 @@ NSString * const kActiveDirectoryAccountFlag    = @"Active Directory Account";
                          return;
                      }
                      
-                     [SettingsManager setMicrosoftAccountId:client.accountId];
+                     if (business) {
+                         [SettingsManager setActiveDirectoryAccountId:client.accountId];
+                     }
+                     else {
+                         [SettingsManager setMicrosoftAccountId:client.accountId];
+                     }
 
+                     // Use appfolder for a Microsoft account, and a specific path for an active directory account
                      BOOL useAppfolder = !business;
                      
                      [self uploadToClient:client
@@ -124,7 +129,6 @@ NSString * const kActiveDirectoryAccountFlag    = @"Active Directory Account";
                                completion:^(ODItem *response, NSError *error) {
                                    completion(response, error);
                                }];
-
                  }];
 }
 

@@ -236,7 +236,7 @@ const CGFloat kHideDelay = 3.f;
         
         NSData *imageDataWithQuality = UIImageJPEGRepresentation([UIImage imageWithData:imageData], imageQuality);
         NSDate *startTime = [NSDate date];
-        
+    
         [self uploadImageData:imageDataWithQuality
                    toBusiness:business
                    completion:^(ODItem *response, NSError *error) {
@@ -317,7 +317,6 @@ const CGFloat kHideDelay = 3.f;
         [alertController addAction:[UIAlertAction actionWithTitle:@"Close" style:UIAlertActionStyleCancel handler:nil]];
         [self presentViewController:alertController animated:YES completion:nil];
       });
-
 }
 
 - (void)setStatus:(NSString*)text showLoading:(BOOL)show {

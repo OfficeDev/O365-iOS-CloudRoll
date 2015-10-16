@@ -32,7 +32,7 @@ static NSString * const kActiveDirectoryAccountId   = @"activeDirectoryAccountId
 + (void)setMicrosoftAccountId:(NSString *)accountId {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     [userDefaults setObject:accountId
-                      forKey:kMicrosoftAccountId];
+                     forKey:kMicrosoftAccountId];
     [userDefaults synchronize];
 }
 
