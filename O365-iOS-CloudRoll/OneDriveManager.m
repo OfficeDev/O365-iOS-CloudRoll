@@ -18,9 +18,7 @@ NSString * const kActiveDirectoryScopesString   = @"MyFiles.readwrite";
 NSString * const kMicrosoftAccountFlag          = @"Microsoft Account";
 NSString * const kActiveDirectoryAccountFlag    = @"Active Directory Account";
 
-
 @implementation OneDriveManager
-
 
 #pragma mark - Initialization
 - (instancetype)init {
@@ -104,10 +102,10 @@ NSString * const kActiveDirectoryAccountFlag    = @"Active Directory Account";
                      if ((![client.serviceFlags objectForKey:kActiveDirectoryAccountFlag] && business) ||
                          (![client.serviceFlags objectForKey:kMicrosoftAccountFlag] && !business)) {
                          
-                         NSString *errorString = [NSString stringWithFormat:@"Please authenticated with a %@", business?@"Active directory account":@"Microsoft account"];
+                         NSString *errorString = [NSString stringWithFormat:@"Please authenticate with %@", business?@"an Active directory account":@"a Microsoft account"];
                          NSError *newError = [NSError errorWithDomain:@"http://microsoft"
                                                                  code:0
-                                                             userInfo:@{errorString:NSLocalizedDescriptionKey}];
+                                                             userInfo:@{NSLocalizedDescriptionKey:errorString}];
                          [client signOutWithCompletion:^(NSError *error) {
                              completion(nil, 0, newError);
                          }];
@@ -169,7 +167,7 @@ NSString * const kActiveDirectoryAccountFlag    = @"Active Directory Account";
                 // handle access denied error
                 NSError *newError = [NSError errorWithDomain:@"http://microsoft"
                                                         code:0
-                                                    userInfo:@{@"Access denied. Please sign in again.":NSLocalizedDescriptionKey}];
+                                                    userInfo:@{NSLocalizedDescriptionKey:@"Access denied. Please sign in again."}];
                 completion(nil, 0, newError);
                 return;
             }
