@@ -235,11 +235,10 @@ const CGFloat kHideDelay = 3.f;
         }
         
         NSData *imageDataWithQuality = UIImageJPEGRepresentation([UIImage imageWithData:imageData], imageQuality);
-        NSDate *startTime = [NSDate date];
     
         [self uploadImageData:imageDataWithQuality
                    toBusiness:business
-                   completion:^(ODItem *response, NSError *error) {
+                   completion:^(ODItem *response,  float timeElapedForUploadTask, NSError *error) {
                         self.photoButtonEnabled = YES;
                         if (error) {
                             NSLog(@"Error\n%@", [error localizedDescription]);
@@ -249,7 +248,7 @@ const CGFloat kHideDelay = 3.f;
                         }
                         
                         [self setStatus:[NSString stringWithFormat:@"Success ✓ - %.02f seconds\n%@",
-                                         [[NSDate date] timeIntervalSinceDate:startTime], response.name]
+                                         timeElapedForUploadTask, response.name]
                             showLoading:NO
                               hideAfter:kHideDelay];
                     }];
@@ -291,18 +290,18 @@ const CGFloat kHideDelay = 3.f;
 
 - (void)uploadImageData:(NSData *)imageData
              toBusiness:(BOOL)business
-              completion:(void (^)(ODItem *response, NSError *error))completion
+              completion:(void (^)(ODItem *response, float timeElapedForUploadTask, NSError *error))completion
 {
     if (business) {
         [self.oneDriveManager uploadToBusinessAccount:[SettingsManager activeDirectoryAccountId]
-                                            imageData:imageData completion:^(ODItem *response, NSError *error) {
-                                                completion(response, error);
+                                            imageData:imageData completion:^(ODItem *response, float timeElapsedForUploadTask, NSError *error) {
+                                                completion(response, timeElapsedForUploadTask, error);
                                             }];
     }
     else {
         [self.oneDriveManager uploadToConsumerAccount:[SettingsManager microsoftAccountId]
-                                            imageData:imageData completion:^(ODItem *response, NSError *error) {
-                                                completion(response, error);
+                                            imageData:imageData completion:^(ODItem *response, float timeElapsedForUploadTask, NSError *error) {
+                                                completion(response, timeElapsedForUploadTask, error);
                                             }];
     }
 }

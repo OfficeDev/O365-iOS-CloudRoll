@@ -21,6 +21,7 @@ NSString * const kActiveDirectoryAccountFlag    = @"Active Directory Account";
 
 @implementation OneDriveManager
 
+
 #pragma mark - Initialization
 - (instancetype)init {
     self = [super init];
@@ -64,23 +65,23 @@ NSString * const kActiveDirectoryAccountFlag    = @"Active Directory Account";
 
 - (void)uploadToConsumerAccount:(NSString *)accountId
                       imageData:(NSData *)imageData
-                     completion:(void (^)(ODItem *response, NSError *error))completion {
+                     completion:(void (^)(ODItem *response, float timeElapsedForUploadTask, NSError *error))completion {
     [self uploadToAccount:accountId
         isBusinessAccount:NO
                 imageData:imageData
-               completion:^(ODItem *response, NSError *error) {
-                   completion (response, error);
+               completion:^(ODItem *response, float timeElapsedForUploadTask, NSError *error) {
+                   completion (response, timeElapsedForUploadTask, error);
                }];
 }
 
 - (void)uploadToBusinessAccount:(NSString *)accountId
                       imageData:(NSData *)imageData
-                     completion:(void (^)(ODItem *response, NSError *error))completion {
+                     completion:(void (^)(ODItem *response, float timeElapsedForUploadTask, NSError *error))completion {
     [self uploadToAccount:accountId
         isBusinessAccount:YES
                 imageData:imageData
-               completion:^(ODItem *response, NSError *error) {
-                   completion (response, error);
+               completion:^(ODItem *response, float timeElapsedForUploadTask, NSError *error) {
+                   completion (response, timeElapsedForUploadTask, error);
                }];
 }
 
@@ -89,12 +90,12 @@ NSString * const kActiveDirectoryAccountFlag    = @"Active Directory Account";
 - (void)uploadToAccount:(NSString *)accountId
       isBusinessAccount:(BOOL)business
               imageData:(NSData *)imageData
-             completion:(void (^)(ODItem *response, NSError *error))completion
+             completion:(void (^)(ODItem *response,  float timeElapsedForUploadTask, NSError *error))completion
 {
     [self clientWithAccount:accountId
                  completion:^(ODClient *client, NSError *error) {
                      if (error) {
-                         completion(nil, error);
+                         completion(nil, 0, error);
                          return;
                      }
                      
@@ -108,7 +109,7 @@ NSString * const kActiveDirectoryAccountFlag    = @"Active Directory Account";
                                                                  code:0
                                                              userInfo:@{errorString:NSLocalizedDescriptionKey}];
                          [client signOutWithCompletion:^(NSError *error) {
-                             completion(nil, newError);
+                             completion(nil, 0, newError);
                          }];
                          return;
                      }
@@ -126,8 +127,8 @@ NSString * const kActiveDirectoryAccountFlag    = @"Active Directory Account";
                      [self uploadToClient:client
                                 imageData:imageData
                              useAppFolder:useAppfolder
-                               completion:^(ODItem *response, NSError *error) {
-                                   completion(response, error);
+                               completion:^(ODItem *response, float timeElapsedForUploadTask, NSError *error) {
+                                   completion(response, timeElapsedForUploadTask, error);
                                }];
                  }];
 }
@@ -138,7 +139,7 @@ NSString * const kActiveDirectoryAccountFlag    = @"Active Directory Account";
 - (void)uploadToClient:(ODClient *)client
              imageData:(NSData *)imageData
           useAppFolder:(BOOL)appFolder
-            completion:(void (^)(ODItem *response, NSError *error))completion {
+            completion:(void (^)(ODItem *response, float timeElapsedForUploadTask, NSError *error))completion {
     
     ODItemRequestBuilder *itemRequestBuilder;
     NSString *filePath;
@@ -158,8 +159,23 @@ NSString * const kActiveDirectoryAccountFlag    = @"Active Directory Account";
         filePath = [NSString stringWithFormat:@"iOS-CloudRoll/%@", [dateFormatter stringFromDate:[NSDate date]]];
     }
     
+    NSDate *startTime = [NSDate date];
     [[[itemRequestBuilder itemByPath:filePath] contentRequest] uploadFromData:imageData completion:^(ODItem *response, NSError *error) {
-        completion(response, error);
+        
+        if (error) {
+            id odError = [error.userInfo objectForKey:ODErrorKey];
+            if ([odError matches:@"accessDenied"]){
+                [self signOut];
+                // handle access denied error
+                NSError *newError = [NSError errorWithDomain:@"http://microsoft"
+                                                        code:0
+                                                    userInfo:@{@"Access denied. Please sign in again.":NSLocalizedDescriptionKey}];
+                completion(nil, 0, newError);
+                return;
+            }
+        }
+        
+        completion(response,  [[NSDate date] timeIntervalSinceDate:startTime],  error);
     }];
 }
 
