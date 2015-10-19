@@ -6,7 +6,7 @@
 
 CloudRoll is an iOS app that allows you take a picture and send it to OneDrive without storing the image locally on the phone. This can be valuable if you're concerned about storage space, or, if you lose your phone, making sure confidential pictures are not lost with it.
 
-This sample is built using the OneDrive SDK for iOS, and  it will demonstrate:
+This sample is built using the [OneDrive SDK for iOS](https://github.com/OneDrive/onedrive-sdk-ios), and  it will demonstrate:
 
 - Authenticating multiple account types including Microsoft Accounts (outlook.com, hotmail.com), or an organizational account (Active Directory-based) to the OneDrive service in Office 365.
 - Using the OneDrive API to upload a captured image to a CloudRoll app folder. 
