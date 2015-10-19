@@ -24,9 +24,9 @@ We'll walk through the code in detail in the wiki.
      > Important: You will also need to ensure your Azure subscription is bound to your Office 365 tenant. To do this, see the Active Directory team's blog post, [Creating and Managing Multiple Windows Azure Active Directories](http://blogs.technet.com/b/ad/archive/2013/11/08/creating-and-managing-multiple-windows-azure-active-directories.aspx). The section **Adding a new directory** will explain how to do this. You can also see [Set up your Office 365 development environment](https://msdn.microsoft.com/office/office365/howto/setup-development-environment#bk_CreateAzureSubscription) and the section **Associate your Office 365 account with Azure AD to create and manage apps** for more information.
    
    
-* A client id and redirect uri values of an application registered in Microsoft Azure. To create the registration, see [register the CloudRoll App](https://github.com/OfficeDev/O365-iOS-CloudRoll/wiki/register-the-CloudRoll-app).
+* Client ID and redirect uri values of an application registered in Microsoft Azure (OneDrive for Business). To create the registration, see [register the CloudRoll App](https://github.com/OfficeDev/O365-iOS-CloudRoll/wiki/register-the-CloudRoll-app).
 
-* A client id of an application registered in the Windows Live application management site). To create the registration, see [register the CloudRoll App](https://github.com/OfficeDev/O365-iOS-CloudRoll/wiki/register-the-CloudRoll-app).
+* A Client ID of an application registered in the Windows Live application management site (OneDrive). To create the registration, see [register the CloudRoll App](https://github.com/OfficeDev/O365-iOS-CloudRoll/wiki/register-the-CloudRoll-app).
 
 ## Running this sample using XCode
 
