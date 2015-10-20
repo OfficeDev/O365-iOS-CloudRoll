@@ -10,7 +10,7 @@
 
 // *********************************************************
 //
-// CloudRoll for iOS, https://github.com/OfficeDev/
+// CloudRoll for iOS, https://github.com/OfficeDev/O365-iOS-CloudRoll
 //
 // Copyright (c) Microsoft Corporation
 // All rights reserved.
