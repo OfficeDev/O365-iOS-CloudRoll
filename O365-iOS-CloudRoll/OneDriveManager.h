@@ -8,13 +8,10 @@
 
 @interface OneDriveManager : NSObject
 
-- (void)uploadToConsumerAccount:(NSString *)accountId
-                      imageData:(NSData *)imageData
-                     completion:(void (^)(ODItem *response, float timeElapsedForUploadTask, NSError *error))completion;
-
-- (void)uploadToBusinessAccount:(NSString *)accountId
-                      imageData:(NSData *)imageData
-                     completion:(void (^)(ODItem *response, float timeElapsedForUploadTask, NSError *error))completion;
+- (void)uploadToAccount:(NSString *)accountId
+      isBusinessAccount:(BOOL)business
+              imageData:(NSData *)imageData
+             completion:(void (^)(ODItem *response,  float timeElapsedForUploadTask, NSError *error))completion;
 
 - (void)signOut;
 

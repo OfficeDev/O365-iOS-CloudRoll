@@ -292,18 +292,12 @@ const CGFloat kHideDelay = 3.f;
              toBusiness:(BOOL)business
               completion:(void (^)(ODItem *response, float timeElapedForUploadTask, NSError *error))completion
 {
-    if (business) {
-        [self.oneDriveManager uploadToBusinessAccount:[SettingsManager activeDirectoryAccountId]
-                                            imageData:imageData completion:^(ODItem *response, float timeElapsedForUploadTask, NSError *error) {
-                                                completion(response, timeElapsedForUploadTask, error);
-                                            }];
-    }
-    else {
-        [self.oneDriveManager uploadToConsumerAccount:[SettingsManager microsoftAccountId]
-                                            imageData:imageData completion:^(ODItem *response, float timeElapsedForUploadTask, NSError *error) {
-                                                completion(response, timeElapsedForUploadTask, error);
-                                            }];
-    }
+    [self.oneDriveManager uploadToAccount:business?[SettingsManager activeDirectoryAccountId]:[SettingsManager microsoftAccountId]
+                        isBusinessAccount:business
+                                imageData:imageData
+                               completion:^(ODItem *response, float timeElapsedForUploadTask, NSError *error) {
+                                   completion(response, timeElapsedForUploadTask, error);
+                               }];
 }
 
 #pragma mark - ui helpers

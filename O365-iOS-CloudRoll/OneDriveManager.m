@@ -11,10 +11,12 @@ NSString * const kMicrosoftAccountAppId         = @"ENTER_CLIENT_ID_HERE";
 NSString * const kMicrosoftAccountScopesString  = @"wl.signin,onedrive.readwrite,onedrive.appfolder,wl.offline_access";
 
 // You will set your application's clientId and redirect URI for Active Directory authentication (OneDrive for
-//Business)
+// Business)
 NSString * const kActiveDirectoryAppId          = @"ENTER_CLIENT_ID_HERE";
 NSString * const kActiveDirectoryRedirectURL    = @"ENTER_REDIRECT_URI_HERE";
 NSString * const kActiveDirectoryScopesString   = @"MyFiles.readwrite";
+
+// Constant strings for this class
 NSString * const kMicrosoftAccountFlag          = @"Microsoft Account";
 NSString * const kActiveDirectoryAccountFlag    = @"Active Directory Account";
 
@@ -60,30 +62,6 @@ NSString * const kActiveDirectoryAccountFlag    = @"Active Directory Account";
 }
 
 #pragma mark - public uploading task methods
-
-- (void)uploadToConsumerAccount:(NSString *)accountId
-                      imageData:(NSData *)imageData
-                     completion:(void (^)(ODItem *response, float timeElapsedForUploadTask, NSError *error))completion {
-    [self uploadToAccount:accountId
-        isBusinessAccount:NO
-                imageData:imageData
-               completion:^(ODItem *response, float timeElapsedForUploadTask, NSError *error) {
-                   completion (response, timeElapsedForUploadTask, error);
-               }];
-}
-
-- (void)uploadToBusinessAccount:(NSString *)accountId
-                      imageData:(NSData *)imageData
-                     completion:(void (^)(ODItem *response, float timeElapsedForUploadTask, NSError *error))completion {
-    [self uploadToAccount:accountId
-        isBusinessAccount:YES
-                imageData:imageData
-               completion:^(ODItem *response, float timeElapsedForUploadTask, NSError *error) {
-                   completion (response, timeElapsedForUploadTask, error);
-               }];
-}
-
-
 
 - (void)uploadToAccount:(NSString *)accountId
       isBusinessAccount:(BOOL)business
