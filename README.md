@@ -59,7 +59,7 @@ We'll walk through the code in detail in the wiki.
 
 5. Run the sample.
 
-To learn more about the sample, visit our [understanding the code](https://github.com/OfficeDev/O365-iOS-CloudRoll/wiki/understanding-the-code) wiki page.
+To learn more about the sample, visit our [understanding the code](https://github.com/OfficeDev/O365-iOS-CloudRoll/wiki/understand-the-code) wiki page.
 
 
 
