@@ -8,7 +8,7 @@ CloudRoll is a sample iOS app that demonstrates how to take a camera picture and
 
 ![O365-iOS-CloudRoll](https://github.com/OfficeDev/O365-iOS-CloudRoll/blob/master/Images/cloudRoll.jpg)
 
-This sample is built using the [OneDrive SDK for iOS](https://github.com/OneDrive/onedrive-sdk-ios), and  it will demonstrate:
+This sample is built using the [OneDrive SDK for iOS](https://github.com/OneDrive/onedrive-sdk-ios). It shows the power and flexibility of using a unified OneDrive API in an app that can use both consumer and organizational accounts. 
 
 - Authenticating multiple account types including Microsoft Accounts (outlook.com, hotmail.com), or an organizational account (Active Directory-based) to the OneDrive service in Office 365.
 - Using the OneDrive API to upload a captured image to a CloudRoll app folder. 
@@ -73,6 +73,10 @@ Questions about Office 365 development in general should be posted to [Stack Ove
 ## Additional resources
 
 * [Office Dev Center](http://dev.office.com/)
+* [OneDrive SDK for iOS](https://github.com/OneDrive/onedrive-sdk-ios)
+* [O365-iOS-Unified-API-Connect](https://github.com/OfficeDev/O365-iOS-Unified-API-Connect)
+* [O365-iOS-Unified-API-Snippets](https://github.com/OfficeDev/O365-iOS-Unified-API-Snippets)
+* [Develop with the OneDrive API](https://dev.onedrive.com/README.htm)
 * [Office 365 APIs platform overview](https://msdn.microsoft.com/office/office365/howto/platform-development-overview)
 * [Getting started with Office 365 APIs](http://dev.office.com/getting-started/office365apis)
 * [Using CocoaPods](https://guides.cocoapods.org/using/using-cocoapods.html)
