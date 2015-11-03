@@ -6,7 +6,7 @@
 #import <OneDriveSDK/OneDriveSDK.h>
 #import "SettingsManager.h"
 
-// You will set your application's clientId and redirect URI for Microsoft Account authentication (OneDrive)
+// You will set your application's clientId for Microsoft Account authentication (OneDrive)
 NSString * const kMicrosoftAccountAppId         = @"ENTER_CLIENT_ID_HERE";
 NSString * const kMicrosoftAccountScopesString  = @"wl.signin,onedrive.readwrite,onedrive.appfolder,wl.offline_access";
 
