@@ -209,7 +209,7 @@
                         <sections>
                             <tableViewSection headerTitle="Camera Settings" id="4mN-KW-JCE">
                                 <string key="footerTitle">Set high resolution for the best quality upload. 
-This could be slow depending on the network's status.</string>
+</string>
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="jin-TS-zDG">
                                         <rect key="frame" x="0.0" y="49.5" width="600" height="44"/>
