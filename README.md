@@ -10,7 +10,7 @@ CloudRoll is a sample iOS app that demonstrates how to take a camera picture and
 
 This sample is built using the [OneDrive SDK for iOS](https://github.com/OneDrive/onedrive-sdk-ios). It shows the power and flexibility of using a unified OneDrive API in an app that can use both consumer and organizational accounts. 
 
-- Authenticating multiple account types including Microsoft accounts (outlook.com, hotmail.com), or an organizational account (Active Directory-based) to the OneDrive service in Office 365.
+- Authenticating multiple account types including Microsoft accounts (outlook.com, hotmail.com), or an organizational account (Active Directory-based) to the OneDrive service in Office 365. In this sample you can log into both account types at the same time.
 - Using the OneDrive API to upload a captured image to a CloudRoll app folder. 
 
 We'll walk through the code in detail in the wiki.
