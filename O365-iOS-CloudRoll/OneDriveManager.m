@@ -14,7 +14,6 @@ NSString * const kMicrosoftAccountScopesString  = @"wl.signin,onedrive.readwrite
 // Business)
 NSString * const kActiveDirectoryAppId          = @"ENTER_CLIENT_ID_HERE";
 NSString * const kActiveDirectoryRedirectURL    = @"ENTER_REDIRECT_URI_HERE";
-NSString * const kActiveDirectoryScopesString   = @"MyFiles.readwrite";
 
 // Constant strings for this class
 NSString * const kMicrosoftAccountFlag          = @"Microsoft Account";
@@ -33,15 +32,9 @@ NSString * const kActiveDirectoryAccountFlag    = @"Active Directory Account";
 
 - (void)initOneDrive {
     NSArray *microsoftAccountScopes = [kMicrosoftAccountScopesString componentsSeparatedByString:@","];
-    NSArray *activeDirectoryScopes = [kActiveDirectoryScopesString componentsSeparatedByString:@","];
     
-    [ODClient setMicrosoftAccountAppId:kMicrosoftAccountAppId
-                microsoftAccountScopes:microsoftAccountScopes
-                 microsoftAccountFlags:@{kMicrosoftAccountFlag:@(1)}
-                  activeDirectoryAppId:kActiveDirectoryAppId
-                 activeDirectoryScopes:activeDirectoryScopes
-            activeDirectoryRedirectURL:kActiveDirectoryRedirectURL
-                  activeDirectoryFlags:@{kActiveDirectoryAccountFlag:@(1)}];
+    [ODClient setMicrosoftAccountAppId:kMicrosoftAccountAppId scopes:microsoftAccountScopes flags:@{kMicrosoftAccountFlag:@(1)}];
+    [ODClient setActiveDirectoryAppId:kActiveDirectoryAppId redirectURL:kActiveDirectoryRedirectURL flags:@{kActiveDirectoryAccountFlag:@(1)}];
 }
 
 
@@ -136,11 +129,12 @@ NSString * const kActiveDirectoryAccountFlag    = @"Active Directory Account";
     }
     
     NSDate *startTime = [NSDate date];
-    [[[itemRequestBuilder itemByPath:filePath] contentRequest] uploadFromData:imageData completion:^(ODItem *response, NSError *error) {
-        
+    
+    // OneDrive API PUT https://api.onedrive.com/v1.0/drive/{filePath}/content
+   [[[itemRequestBuilder itemByPath:filePath] contentRequest] uploadFromData:imageData completion:^(ODItem *response, NSError *error){
         if (error) {
             id odError = [error.userInfo objectForKey:ODErrorKey];
-            if ([odError matches:@"accessDenied"]){
+            if ([odError matches:ODAccessDeniedError]){
                 [self signOut];
                 // handle access denied error
                 NSError *newError = [NSError errorWithDomain:@"http://microsoft"
