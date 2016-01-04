@@ -1,8 +1,8 @@
+
 language: objective-c
-before_install:
-- gem install cocoapods
-- brew update
-- if brew outdated | grep -qx xctool; then brew upgrade xctool; fi
+osx_image: xcode7
+xcode_workspace: O365-iOS-CloudRoll.xcworkspace
+xcode_scheme: O365-iOS-CloudRoll
 script:
 - xctool -workspace O365-iOS-CloudRoll.xcworkspace -scheme O365-iOS-CloudRoll -sdk iphonesimulator
 notifications:
