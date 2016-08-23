@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7AD205B80A80F2F881EACF95 /* libPods-O365-iOS-CloudRoll.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 573D4B6A87D37A9AFC0CE563 /* libPods-O365-iOS-CloudRoll.a */; };
 		96011B791BBC833A0002C748 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96011B781BBC833A0002C748 /* AVFoundation.framework */; };
-		9664A1B61BC4A5DF00CECB22 /* cloudRollLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 9664A1B51BC4A5DF00CECB22 /* cloudRollLogo.png */; settings = {ASSET_TAGS = (); }; };
+		9664A1B61BC4A5DF00CECB22 /* cloudRollLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 9664A1B51BC4A5DF00CECB22 /* cloudRollLogo.png */; };
 		9667DB821BBC5C6C006A2F83 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9667DB811BBC5C6C006A2F83 /* main.m */; };
 		9667DB851BBC5C6C006A2F83 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9667DB841BBC5C6C006A2F83 /* AppDelegate.m */; };
 		9667DB8B1BBC5C6C006A2F83 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9667DB891BBC5C6C006A2F83 /* Main.storyboard */; };
@@ -16,11 +17,10 @@
 		9667DB901BBC5C6C006A2F83 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9667DB8E1BBC5C6C006A2F83 /* LaunchScreen.storyboard */; };
 		9667DB9B1BBC5C6C006A2F83 /* O365_iOS_CloudRollTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9667DB9A1BBC5C6C006A2F83 /* O365_iOS_CloudRollTests.m */; };
 		9667DBA61BBC5C6C006A2F83 /* O365_iOS_CloudRollUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9667DBA51BBC5C6C006A2F83 /* O365_iOS_CloudRollUITests.m */; };
-		966E33A81BBC97B8002D1DCA /* SettingsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 966E33A71BBC97B8002D1DCA /* SettingsManager.m */; settings = {ASSET_TAGS = (); }; };
-		966E33AE1BBC97F0002D1DCA /* OneDriveManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 966E33AD1BBC97F0002D1DCA /* OneDriveManager.m */; settings = {ASSET_TAGS = (); }; };
-		966E33B11BBC9807002D1DCA /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 966E33B01BBC9807002D1DCA /* CameraViewController.m */; settings = {ASSET_TAGS = (); }; };
-		966E33B41BBC981A002D1DCA /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 966E33B31BBC981A002D1DCA /* SettingsTableViewController.m */; settings = {ASSET_TAGS = (); }; };
-		CA8D501BA8BEAF80463CE741 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 178752ED577FFA24F38B8B26 /* libPods.a */; };
+		966E33A81BBC97B8002D1DCA /* SettingsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 966E33A71BBC97B8002D1DCA /* SettingsManager.m */; };
+		966E33AE1BBC97F0002D1DCA /* OneDriveManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 966E33AD1BBC97F0002D1DCA /* OneDriveManager.m */; };
+		966E33B11BBC9807002D1DCA /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 966E33B01BBC9807002D1DCA /* CameraViewController.m */; };
+		966E33B41BBC981A002D1DCA /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 966E33B31BBC981A002D1DCA /* SettingsTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +42,7 @@
 
 /* Begin PBXFileReference section */
 		178752ED577FFA24F38B8B26 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		573D4B6A87D37A9AFC0CE563 /* libPods-O365-iOS-CloudRoll.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-O365-iOS-CloudRoll.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		688006A5C71FA0491675A365 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		96011B781BBC833A0002C748 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		9664A1B51BC4A5DF00CECB22 /* cloudRollLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cloudRollLogo.png; sourceTree = "<group>"; };
@@ -67,6 +68,8 @@
 		966E33B01BBC9807002D1DCA /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
 		966E33B21BBC981A002D1DCA /* SettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewController.h; sourceTree = "<group>"; };
 		966E33B31BBC981A002D1DCA /* SettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewController.m; sourceTree = "<group>"; };
+		C745A82DACBCEEB54F1E2A4C /* Pods-O365-iOS-CloudRoll.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-O365-iOS-CloudRoll.debug.xcconfig"; path = "Pods/Target Support Files/Pods-O365-iOS-CloudRoll/Pods-O365-iOS-CloudRoll.debug.xcconfig"; sourceTree = "<group>"; };
+		E865442C10B497867DAFE695 /* Pods-O365-iOS-CloudRoll.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-O365-iOS-CloudRoll.release.xcconfig"; path = "Pods/Target Support Files/Pods-O365-iOS-CloudRoll/Pods-O365-iOS-CloudRoll.release.xcconfig"; sourceTree = "<group>"; };
 		F5EF81D989A7AF63A3E122EF /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -76,7 +79,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				96011B791BBC833A0002C748 /* AVFoundation.framework in Frameworks */,
-				CA8D501BA8BEAF80463CE741 /* libPods.a in Frameworks */,
+				7AD205B80A80F2F881EACF95 /* libPods-O365-iOS-CloudRoll.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,6 +105,7 @@
 			children = (
 				96011B781BBC833A0002C748 /* AVFoundation.framework */,
 				178752ED577FFA24F38B8B26 /* libPods.a */,
+				573D4B6A87D37A9AFC0CE563 /* libPods-O365-iOS-CloudRoll.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -111,6 +115,8 @@
 			children = (
 				688006A5C71FA0491675A365 /* Pods.debug.xcconfig */,
 				F5EF81D989A7AF63A3E122EF /* Pods.release.xcconfig */,
+				C745A82DACBCEEB54F1E2A4C /* Pods-O365-iOS-CloudRoll.debug.xcconfig */,
+				E865442C10B497867DAFE695 /* Pods-O365-iOS-CloudRoll.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -209,12 +215,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9667DBAA1BBC5C6C006A2F83 /* Build configuration list for PBXNativeTarget "O365-iOS-CloudRoll" */;
 			buildPhases = (
-				F6F1D1BD88B1D062DC134306 /* Check Pods Manifest.lock */,
+				F6F1D1BD88B1D062DC134306 /* [CP] Check Pods Manifest.lock */,
 				9667DB791BBC5C6C006A2F83 /* Sources */,
 				9667DB7A1BBC5C6C006A2F83 /* Frameworks */,
 				9667DB7B1BBC5C6C006A2F83 /* Resources */,
-				0F9F912A88F8C98FB455E862 /* Copy Pods Resources */,
-				4723BF3C99519E1E22E3378E /* Embed Pods Frameworks */,
+				0F9F912A88F8C98FB455E862 /* [CP] Copy Pods Resources */,
+				4723BF3C99519E1E22E3378E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -338,44 +344,44 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0F9F912A88F8C98FB455E862 /* Copy Pods Resources */ = {
+		0F9F912A88F8C98FB455E862 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-O365-iOS-CloudRoll/Pods-O365-iOS-CloudRoll-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		4723BF3C99519E1E22E3378E /* Embed Pods Frameworks */ = {
+		4723BF3C99519E1E22E3378E /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-O365-iOS-CloudRoll/Pods-O365-iOS-CloudRoll-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F6F1D1BD88B1D062DC134306 /* Check Pods Manifest.lock */ = {
+		F6F1D1BD88B1D062DC134306 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -532,7 +538,7 @@
 		};
 		9667DBAB1BBC5C6C006A2F83 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 688006A5C71FA0491675A365 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = C745A82DACBCEEB54F1E2A4C /* Pods-O365-iOS-CloudRoll.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -547,7 +553,7 @@
 		};
 		9667DBAC1BBC5C6C006A2F83 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F5EF81D989A7AF63A3E122EF /* Pods.release.xcconfig */;
+			baseConfigurationReference = E865442C10B497867DAFE695 /* Pods-O365-iOS-CloudRoll.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
