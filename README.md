@@ -1,3 +1,16 @@
+---
+topic: sample
+products:
+- OneDrive
+- Office 365
+languages:
+- Objective-C
+extensions:
+  contentType: samples
+  createdDate: 10/13/2015 3:46:04 PM
+  scenarios:
+  - Mobile
+---
 # Office 365 iOS CloudRoll
 
 
