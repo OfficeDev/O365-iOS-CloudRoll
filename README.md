@@ -1,10 +1,10 @@
 ---
 topic: sample
 products:
-- OneDrive
-- Office 365
+- office-onedrive
+- office-365
 languages:
-- Objective-C
+- objc
 extensions:
   contentType: samples
   createdDate: 10/13/2015 3:46:04 PM
